@@ -1,0 +1,30 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+
+	div(id='chart')
+	script(type='text/javascript').
+		eon.chart({
+			history: false,
+			channel: "c3-spline",
+			flow: {
+			duration: 100
+				},
+				generate: {
+				bindto: '#chart',
+				data: {
+				x: 'x',
+				labels: true
+					},
+					axis : {
+					x : {
+					type : 'timeseries',
+					tick: {
+					format: '%H:%M:%S'
+					}
+					}
+					}
+					}
+					});
